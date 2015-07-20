@@ -24,6 +24,7 @@ su -c '
 	cp -fv root-system-file-manager.png /usr/share/pixmaps/
 	desktop-file-install su-filemanager.desktop
 '
+
 ```
 
 ### Uninstall
@@ -43,21 +44,23 @@ su -c '
 ```bash
 cd su-bleachbit/
 su -c '
-rm -fv /usr/share/applications/bleachbit-root.desktop
-cp -fv org.freedesktop.pkexec.run-bleachbit-as-root.policy /usr/share/polkit-1/actions/
-cp -fv su-bleachbit.sh /usr/local/bin/pkexec-bleachbit
-chmod +x /usr/local/bin/pkexec-bleachbit
-desktop-file-install su-bleachbit.desktop
+	rm -fv /usr/share/applications/bleachbit-root.desktop
+	cp -fv org.freedesktop.pkexec.run-bleachbit-as-root.policy /usr/share/polkit-1/actions/
+	cp -fv su-bleachbit.sh /usr/local/bin/pkexec-bleachbit
+	chmod +x /usr/local/bin/pkexec-bleachbit
+	desktop-file-install su-bleachbit.desktop
 '
+
 ```
 
 ### Uninstall
 
 ```bash
 su -c '
-rm -fv /usr/share/polkit-1/actions/org.freedesktop.pkexec.run-bleachbit-as-root.policy
-rm -fv /usr/local/bin/pkexec-bleachbit
-rm -fv /usr/share/applications/{bleachbit-root,su-bleachbit}.desktop
+	rm -fv /usr/share/polkit-1/actions/org.freedesktop.pkexec.run-bleachbit-as-root.policy
+	rm -fv /usr/local/bin/pkexec-bleachbit
+	rm -fv /usr/share/applications/{bleachbit-root,su-bleachbit}.desktop
 '
+
 ```
 
