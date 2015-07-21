@@ -35,6 +35,7 @@ su -c '
 	rm -fv /usr/local/bin/pkexec-filemanager
 	rm -fv /usr/share/applications/{su-nautilus,su-filemanager}.desktop
 '
+
 ```
 
 ## Bleachbit as root
