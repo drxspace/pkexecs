@@ -22,9 +22,9 @@ fi
 if [[ "$XAUTHORITY" ]]; then
 	pkexec "$(which bleachbit)"
 elif [[ -x "$(which gksu)" ]]; then
-	gksu -S -m "BleachBitSuper requires admin privileges for its tasks" bleachbit
+	gksu -S -m "BleachBitSuper requires admin privileges for its tasks" "$(which bleachbit)"
 elif [[ -x "$(which kdesu)" ]]; then
-	kdesu bleachbit
+	kdesu "$(which bleachbit)"
 else
 	notify-send "BleachBitSuper" "No authentication program found." -i face-sad &
 	exit 1

@@ -9,6 +9,7 @@
 #
 
 LANG=en_US.UTF-8
+
 ###
 #
 # policykit fix for KDE not setting XAUTHORITY
