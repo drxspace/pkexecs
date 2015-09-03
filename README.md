@@ -7,21 +7,10 @@
 ```bash
 cd su-filemanager/
 su -c '
+	cp -fv root-system-file-manager.png /usr/share/pixmaps/
 	cp -fv su-filemanager.sh /usr/local/bin/pkexec-filemanager
 	chmod +x /usr/local/bin/pkexec-filemanager
-	[[ -x $(which nautilus 2>/dev/null) ]] && {
-		cp -fv org.freedesktop.pkexec.run-nautilus-as-root.policy /usr/share/polkit-1/actions/
-		echo "Nautilus OK."
-	}
-	[[ -x $(which nemo 2>/dev/null) ]] && {
-		cp -fv org.freedesktop.pkexec.run-nemo-as-root.policy /usr/share/polkit-1/actions/
-		echo "Nemo OK."
-	}
-	[[ -x $(which dolphin 2>/dev/null) ]] && {
-		cp -fv org.freedesktop.pkexec.run-dolphin-as-root.policy /usr/share/polkit-1/actions/
-		echo "Dolphin OK."
-	}
-	cp -fv root-system-file-manager.png /usr/share/pixmaps/
+	cp -fv org.freedesktop.pkexec.run-filemanager-as-root.policy /usr/share/polkit-1/actions/
 	desktop-file-install su-filemanager.desktop
 '
 
@@ -31,7 +20,7 @@ su -c '
 ```bash
 su -c '
 	rm -fv /usr/share/pixmaps/root-system-file-manager.png
-	rm -fv /usr/share/polkit-1/actions/org.freedesktop.pkexec.run-{nautilus,nemo,dolphin}-as-root.policy
+	rm -fv /usr/share/polkit-1/actions/org.freedesktop.pkexec.run-{filemanager,nautilus,nemo,dolphin}-as-root.policy
 	rm -fv /usr/local/bin/pkexec-filemanager
 	rm -fv /usr/share/applications/{su-nautilus,su-filemanager}.desktop
 '
