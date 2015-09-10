@@ -101,4 +101,4 @@ Exec=pkexec-bleachbit
 Icon=bleachbit
 Categories=GTK;System;
 Keywords=clean;performances;free;privacy;
-X-StartupNotify=true
+StartupNotify=true
