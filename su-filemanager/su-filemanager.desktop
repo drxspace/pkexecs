@@ -9,7 +9,6 @@ Exec=pkexec-filemanager
 Icon=root-system-file-manager
 Terminal=false
 Type=Application
-OnlyShowIn=GNOME;Unity;MATE;KDE;
 Categories=System;FileManager;FileTools;GTK;
 StartupNotify=true
 X-GNOME-Bugzilla-Bugzilla=GNOME
