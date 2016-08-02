@@ -20,7 +20,7 @@ fi
 
 if [[ "$DESKTOP_SESSION" =~ ubuntu|gnome* && -x "$(which nautilus)" ]]; then
 	pkexec "$(which nautilus)"
-elif [[ "$DESKTOP_SESSION" = xubuntu && -x "$(which thunar)" ]]; then
+elif [[ "$DESKTOP_SESSION" =~ xubuntu|xfce && -x "$(which thunar)" ]]; then
 	pkexec "$(which thunar)"
 elif [[ "$DESKTOP_SESSION" = cinnamon && -x "$(which nemo)" ]]; then
 	pkexec "$(which nemo)"
