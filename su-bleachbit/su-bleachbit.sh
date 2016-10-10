@@ -18,9 +18,12 @@ LANG=en_US.UTF-8
 if [[ -z "$XAUTHORITY" ]] && [[ -e "$HOME/.Xauthority" ]]; then
 	export XAUTHORITY="$HOME/.Xauthority"
 fi
+if [[ -z "$DISPLAY" ]]; then
+	export DISPLAY=:0
+fi
 
 if [[ "$XAUTHORITY" ]]; then
-	pkexec "$(which bleachbit)"
+	pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY "$(which bleachbit)"
 elif [[ -x "$(which gksu)" ]]; then
 	gksu -S -m "BleachBitSuper requires admin privileges for its tasks" "$(which bleachbit)"
 elif [[ -x "$(which kdesu)" ]]; then

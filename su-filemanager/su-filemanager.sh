@@ -17,17 +17,20 @@ LANG=en_US.UTF-8
 if [[ -z "$XAUTHORITY" ]] && [[ -e "$HOME/.Xauthority" ]]; then
 	export XAUTHORITY="$HOME/.Xauthority"
 fi
+if [[ -z "$DISPLAY" ]]; then
+	export DISPLAY=:0
+fi
 
 if [[ "$DESKTOP_SESSION" =~ ubuntu|gnome* && -x "$(which nautilus)" ]]; then
-	pkexec "$(which nautilus)"
+	pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY "$(which nautilus)"
 elif [[ "$DESKTOP_SESSION" =~ xubuntu|xfce && -x "$(which thunar)" ]]; then
-	pkexec "$(which thunar)"
+	pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY "$(which thunar)"
 elif [[ "$DESKTOP_SESSION" = cinnamon && -x "$(which nemo)" ]]; then
-	pkexec "$(which nemo)"
+	pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY "$(which nemo)"
 elif [[ "$DESKTOP_SESSION" = mate && -x "$(which caja)" ]]; then
-	pkexec "$(which caja)"
+	pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY "$(which caja)"
 elif [[ "$DESKTOP_SESSION" =~ kde* && -x "$(which dolphin)" ]]; then
-	pkexec "$(which dolphin)"
+	pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY "$(which dolphin)"
 else
 	notify-send "File Manager" "I could not detect any of these “Desktop Environment ≡ File Manager” pairs." -i face-sad &
 	exit 1
